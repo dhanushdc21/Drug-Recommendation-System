@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
 import path from "path";
 import express from "express";
 import cors from "cors";
@@ -13,16 +14,29 @@ import errorHandler from "./middleware/errorHandler.js"
 import indexRouter from "./routers/index.js"
 
 const app = express();
-try{
-	const root_dir = new URL("..", import.meta.url).pathname;
-	console.log('Constructed .env path:', root_dir);
-	dotenv.config({ path:'../.env'});
-}
-catch(err){
-	console.error('Error loading .env file:', error.message);
-}
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const envPath = path.resolve(__dirname, '../.env');
+console.log('Constructed .env path:', envPath);
 
-console.log('DB_URL:', process.env.DB_URL);
+try {
+    dotenv.config({ path: envPath });
+} catch (err) {
+    console.error('Error loading .env file:', err.message);
+}
+// try{
+// 	// const root_dir = new URL("..", import.meta.url).pathname;
+// 	// console.log('Constructed .env path:', root_dir);
+// 	// dotenv.config({ path:'../.env'});
+// 	const __dirname = path.dirname(fileURLToPath(import.meta.url)); // Get directory name
+// const envPath = path.join(__dirname, '../.env'); // Use path.join to ensure correct path formation
+
+// dotenv.config({ path: enviPath });
+// }
+// catch(err){
+//     console.error('Error loading .env file:', err.message);
+// }
+
+console.log('DB_URL 1:', process.env.DB_URL);
 console.log('Actual Connection String:', process.env.DB_URL);
 
 dbConnect();     // To connect to the database.
