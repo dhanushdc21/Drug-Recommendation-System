@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #580f41;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        #logo {
+            height: 100px;
+            width: 100px;
+            border-radius: 7px;
+        }
+        #signup-container {
+            width: 400px;
+            position: relative;
+            bottom: 60px;
+            margin: 100px auto;
+            padding: 40px;
+            background-color: #967bb6;
+            border-radius: 0px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        form {
+            border-radius: 0px;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: navy;
+            color: white;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        button:hover {
+            background-color: #001f3f;
+        }
+        label {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: black;
+            text-align: left;
+            display: block;
+        }
+        h2 {
+            text-transform: uppercase;
+            text-align: center;
+            color: #38284c;
+            font-family: "Boulder", boulder;
+            font-size: 38px;
+            font-weight: bold;
+        }
+        .input-container {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="/i1.jpg" id="logo" alt="Logo">
+        <div id="signup-container">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <div class="input-container">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="Email" required><br>
+                </div>
+                <div class="input-container">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="Password" required><br>
+                </div>
+                <div class="input-container">
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" id="confirm_password" name="ConfirmPassword" required><br>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/signup.js"></script>
+</body>
+</html>

@@ -15,8 +15,7 @@ const CustomerSchema = new mongoose.Schema(
       trim: true,
     },
     otp: {
-      type: String,
-      unique: true
+      type: String
     }
   },
   { timestamps: true }

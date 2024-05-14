@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #580f41;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        #logo {
+            height: 100px;
+            width: 100px;
+            border-radius: 7px;
+        }
+        #login-container {
+            width: 400px;
+            position: relative;
+            bottom: 60px;
+            margin: 100px auto;
+            padding: 40px;
+            background-color: #967bb6;
+            border-radius: 0px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        form {
+            border-radius: 0px;
+        }
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: navy;
+            color: white;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+        button:hover {
+            background-color: #001f3f;
+        }
+        label {
+            text-transform: uppercase;
+            font-weight: bold;
+            color: black;
+            text-align: left;
+            display: block;
+        }
+        h2 {
+            text-transform: uppercase;
+            text-align: center;
+            color: #38284c;
+            font-family: "Boulder", boulder;
+            font-size: 38px;
+            font-weight: bold;
+        }
+        .input-container {
+            position: relative;
+        }
+        .extra-options-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .extra-option-button {
+            background-color: transparent;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: .7s;
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .extra-option-button:hover {
+            background-color: #001f3f;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="/i1.jpg" id="logo" alt="Logo">
+        <div id="login-container">
+            <h2>Login</h2>
+            <form id="loginForm" action="http://localhost:5000/api/v1/auth/login-user" method="POST">
+                <div class="input-container">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="Email" required><br>
+                </div>
+                <div class="input-container">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="Password" required><br><br>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <div class="extra-options-container">
+                <button class="extra-option-button" id="forgotPasswordButton">Forgot Password?</button>
+                <button class="extra-option-button" id="signUpButton">Sign Up</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+    <script src="/redirect.js"></script>
+    <script src="/extra-options.js"></script>
+</body>
+</html>

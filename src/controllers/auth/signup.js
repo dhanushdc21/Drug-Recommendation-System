@@ -6,11 +6,13 @@ import { generateJWTToken } from "../../utils/jwtUtils.js";
 
 const new_user = errorWrapper(async (req, res, next) => {
     const { email, password, confirm_password } = req.body;
+    console.log(req.body)
     try{
         if (!email || !password || !confirm_password) {
             return res.status(400).json({
                 success: false,
                 message: 'Username and password are required',
+
                 data: null
             });
         }

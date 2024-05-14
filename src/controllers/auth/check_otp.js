@@ -7,6 +7,7 @@ import Customer from '../../models/customer.js';
 const verify = errorWrapper(async (req, res, next) => {
     try {
         let {email, otp} = req.body;
+        console.log(otp);
         const cust = await Customer.findOne({ email: email.trim() });
         if (cust){
             if (cust.otp==otp){
