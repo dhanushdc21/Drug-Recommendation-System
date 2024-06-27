@@ -37,9 +37,17 @@ app.use(morgan("tiny"));
 // Serve static files
 app.use(express.static(path.join(__dirname, 'frontend')));
 
+app.use((req, res, next) => {
+    res.setHeader(
+      'Content-Security-Policy',
+      "script-src 'self' 'unsafe-inline';"
+    );
+    next();
+  });
+  
 app.use('/api/v1', indexRouter); // API routes
 app.use(notFound);
 app.use(errorHandler);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 app.listen(port, () => console.log("Server Running on " + `${port}`));
