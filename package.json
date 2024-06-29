@@ -16,7 +16,9 @@
   "license": "ISC",
   "homepage": "",
   "dependencies": {
+    "@kurkle/color": "^0.3.2",
     "axios": "^1.6.8",
+    "chart.js": "^4.4.3",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^16.4.1",

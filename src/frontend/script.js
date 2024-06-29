@@ -23,9 +23,13 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         return response.json();
     })
     .then(data => {
+        if (data.message=='Admin login success.'){
+            window.location.href = 'http://localhost:5000/api/v1/admin-panel/welcome';
+        }
+        else {
         console.log(data);
         window.location.href = 'http://localhost:5000/api/v1/user-panel/welcome'; // Redirect to a GET API endpoint
-
+        }
         // Redirect or do something else as needed
     })
     .catch(error => {

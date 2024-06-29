@@ -1,6 +1,5 @@
 import { generateAPIError } from "../../errors/apiError.js";
 import { errorWrapper } from "../../middleware/errorWrapper.js";
-import Customer from '../../models/customer.js';
 import Admin from '../../models/User.js';
 import { generateJWTToken } from "../../utils/jwtUtils.js";
 
@@ -17,31 +16,15 @@ const user = errorWrapper(async (req, res, next) => {
                 data: null
             });
         }
-        console.log('Request Body:', req.body);
-        console.log('Querying with:', { email: email, password: password });
-        const user = await Admin.findOne({ email: { $regex: new RegExp(email, 'i') } });
-        console.log('User from database:', user);
-        const cust = await Customer.findOne({ email: email.trim() });
+
+        const admin = await admin.findOne({ email: email.trim() });
         console.log('User from database:', cust);
-        if (user) {
-            if (email === user.email && password === user.password) {
+        if (admin) {
+            if (email === admin.email && password === admin.password) {
                 const jwtToken = generateJWTToken({ userId: email });
                 return res.status(201).json({
                     success: true,
-                    message: 'Admin login success.',
-                    data: {
-                        email: user.email,
-                        jwtToken: jwtToken
-                    }
-                });
-            }
-        }
-        if (cust) {
-            if (email === cust.email && password === cust.password) {
-                const jwtToken = generateJWTToken({ userId: email });
-                return res.status(201).json({
-                    success: true,
-                    message: 'User login success.',
+                    message: 'admin login success.',
                     data: {
                         email: cust.email,
                         jwtToken: jwtToken

@@ -1,12 +1,13 @@
 function submitSymptoms() {
     const form = document.getElementById('symptomsForm');
     const symptoms = [
-        'shortness', 'shortnessOfBreath', 'runnyNose', 'sensitivityToCold', 
+        'shortnessOfBreath', 'sneezing', 'runnyNose', 'sensitivityToCold', 
         'weakness', 'dizzinessLightheadedness', 'mildFever', 'fever', 
         'dizziness', 'weightLoss', 'headache', 'nauseaVomiting', 'nausea'
     ].map(symptom => {
         return form.querySelector(`input[name="${symptom}"]`).checked ? 'yes' : 'no';
     });
+    console.log(symptoms);
 
     // Check if at least one symptom is selected
     const isAnySymptomSelected = symptoms.includes('yes');

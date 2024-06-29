@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Data </title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net">
+
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Optional: Add some basic styles -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            background: linear-gradient(to right bottom, #667eea, #764ba2);
+            color: #302a71; /* Text color */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .charts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+        .chart-container {
+            background-color: #e3dff7ef;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .chart-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .chart-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .chart-canvas {
+            max-width: 100%;
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Patient Data</h1>
+    <div class="charts-container">
+        <div class="chart-container">
+            <div class="chart-title">Symptom Frequency (Pie Chart)</div>
+            <canvas id="symptomChart" class="chart-canvas" width="400" height="400"></canvas>
+        </div>
+        <div class="chart-container">
+            <div class="chart-title">Disease Frequency (Bar Chart)</div>
+            <canvas id="diseaseChart" class="chart-canvas" width="400" height="400"></canvas>
+        </div>
+        <div class="chart-container">
+            <div class="chart-title">Symptoms vs. Diseases (Line Charts)</div>
+            <div id="lineChartsContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                // Fetch data from the API for symptoms
+                const symptomResponse = await fetch('/api/v1/admin-panel/symptoms');
+                const symptomData = await symptomResponse.json();
+
+                // Extract symptom names and their frequencies
+                const symptoms = symptomData.map(item => item.name);
+                const symptomFrequencies = symptomData.map(item => item.count);
+
+                // Fetch data from the API for diseases
+                const diseaseResponse = await fetch('/api/v1/admin-panel/diseases');
+                const diseaseData = await diseaseResponse.json();
+
+                // Extract disease names and their frequencies
+                const diseases = diseaseData.map(item => item.name);
+                const diseaseFrequencies = diseaseData.map(item => item.count);
+
+                // Fetch data from the API for symptoms vs diseases
+                const retrievedResponse = await fetch('/api/v1/admin-panel/symptoms-diseases');
+                const retrievedData = await retrievedResponse.json();
+
+                console.log('Retrieved data:', retrievedData); // Log retrieved data for debugging
+
+                // Function to generate random RGBA color
+                function getRandomColor() {
+                    const r = Math.floor(Math.random() * 256);
+                    const g = Math.floor(Math.random() * 256);
+                    const b = Math.floor(Math.random() * 256);
+                    const a = (Math.random() * (1 - 0.5) + 0.5).toFixed(2); // Alpha between 0.5 and 1
+                    return `rgba(${r}, ${g}, ${b}, ${a})`;
+                }
+
+                // Generate random colors for each symptom
+                const symptomColors = symptoms.map(() => getRandomColor());
+
+                // Generate random colors for each disease
+                const diseaseColors = diseases.map(() => getRandomColor());
+
+                // Get canvas elements and their contexts
+                var symptomCanvas = document.getElementById('symptomChart');
+                var symptomCtx = symptomCanvas.getContext('2d');
+                var diseaseCanvas = document.getElementById('diseaseChart');
+                var diseaseCtx = diseaseCanvas.getContext('2d');
+                var lineChartsContainer = document.getElementById('lineChartsContainer');
+
+                // Draw symptom pie chart
+                var symptomChart = new Chart(symptomCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: symptoms,
+                        datasets: [{
+                            label: 'Symptom Frequency',
+                            data: symptomFrequencies,
+                            backgroundColor: symptomColors,
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(tooltipItem) {
+                                        return `${tooltipItem.label}: ${tooltipItem.raw}`;
+                                    }
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Symptom Frequency'
+                            }
+                        }
+                    }
+                });
+
+                // Draw disease bar chart
+                var diseaseChart = new Chart(diseaseCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: diseases,
+                        datasets: [{
+                            label: 'Disease Frequency',
+                            data: diseaseFrequencies,
+                            backgroundColor: diseaseColors,
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(tooltipItem) {
+                                        return `${tooltipItem.label}: ${tooltipItem.raw}`;
+                                    }
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Disease Frequency'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+
+                // Function to draw line chart for symptoms vs disease
+                function drawSymptomsVsDiseaseLineChart(diseaseName, symptomsData) {
+                    const lineCanvas = document.createElement('canvas');
+                    lineCanvas.width = 400;
+                    lineCanvas.height = 200;
+                    lineChartsContainer.appendChild(lineCanvas);
+
+                    const lineCtx = lineCanvas.getContext('2d');
+                    const symptomPresence = symptoms.map(symptom => {
+                        const presence = symptomsData.symptoms[symptoms.indexOf(symptom)] === 'yes' ? 1 : 0;
+                        return presence;
+                    });
+
+                    new Chart(lineCtx, {
+                        type: 'line',
+                        data: {
+                            labels: symptoms,
+                            datasets: [{
+                                label: diseaseName,
+                                data: symptomPresence,
+                                fill: false,
+                                borderColor: getRandomColor(),
+                                tension: 0.1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'top',
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(tooltipItem) {
+                                            return `${tooltipItem.label}: ${tooltipItem.raw}`;
+                                        }
+                                    }
+                                },
+                                title: {
+                                    display: true,
+                                    text: `${diseaseName} - Symptoms Presence`
+                                }
+                            }
+                        }
+                    });
+                }
+
+                // Check if retrievedData is an array and draw line charts for each disease
+                if (Array.isArray(retrievedData)) {
+                    retrievedData.forEach(data => {
+                        drawSymptomsVsDiseaseLineChart(data.disease, data);
+                    });
+                } else {
+                    console.error('Retrieved data is not in the expected array format:', retrievedData);
+                }
+
+            } catch (error) {
+                console.error('Error fetching or rendering charts:', error);
+            }
+        });
+    </script>
+</body>
+</html>

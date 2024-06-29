@@ -5,149 +5,144 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drug Prediction</title>
     <style>
-body {
-    background: linear-gradient(to right bottom, #667eea, #764ba2); /* Gradient background */
-    color: #c0c1f1; /* White text color */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    padding: 20px;
-    overflow: hidden; /* Hide overflow */
-}
+        body {
+            background: linear-gradient(to right bottom, #667eea, #764ba2);
+            color: #c0c1f1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            overflow: hidden;
+        }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1000px; /* Limit container width */
-    width: 100%;
-    background-color: rgba(219, 41, 41, 0); /* Semi-transparent white background */
-    border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Shadow for container */
-    overflow: hidden; /* Hide overflow */
-}
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1000px;
+            width: 100%;
+            background-color: rgba(219, 41, 41, 0);
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
 
-.symptoms-container {
-    flex: 1; /* Take up remaining space */
-    padding: 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Two columns with equal width */
-    gap: 20px; /* Gap between items */
-    justify-items: center; /* Center items horizontally */
-    align-items: flex-start; /* Align items to the top */
-    overflow-y: auto; /* Enable vertical scroll if needed */
-    max-height: calc(100vh - 160px); /* Max height minus padding and result container */
-}
+        .symptoms-container {
+            flex: 1;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            align-items: flex-start;
+            overflow-y: auto;
+            max-height: calc(100vh - 160px);
+        }
 
-/* Transparent Scrollbar */
-.symptoms-container::-webkit-scrollbar {
-    width: 10px; /* Width of the scrollbar */
-    background-color: transparent; /* Transparent background */
-}
+        .symptoms-container::-webkit-scrollbar {
+            width: 10px;
+            background-color: transparent;
+        }
 
-.symptoms-container::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0); /* Transparent scrollbar thumb */
-    border-radius: 10px; /* Rounded corners */
-}
+        .symptoms-container::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0);
+            border-radius: 10px;
+        }
 
-.result-container {
-    flex: 1; /* Take up remaining space */
-    padding: 40px;
-    background-color: #f9f9f900; /* Light gray background for result */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow-y: auto; /* Enable vertical scroll if needed */
-    max-height: calc(100vh - 160px); /* Max height minus padding and symptoms container */
-}
+        .result-container {
+            flex: 1;
+            padding: 40px;
+            background-color: #f9f9f900;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow-y: auto;
+            max-height: calc(100vh - 160px);
+        }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: normal;
-}
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
 
-form {
-    width: 100%; /* Full width */
-}
+        form {
+            width: 100%;
+        }
 
-.symptom {
-    width: 100%; /* Full width of each symptom */
-    position: relative;
-    margin-bottom: 20px;
-}
+        .symptom {
+            width: 100%;
+            position: relative;
+            margin-bottom: 20px;
+        }
 
-.symptom-label {
-    display: block;
-    padding: 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    background-color: #4a47a3; /* Purple background */
-    color: #ffffffee; /* Semi-transparent white text */
-    text-align: center;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    border: 2px solid transparent;
-}
+        .symptom-label {
+            display: block;
+            padding: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #4a47a3;
+            color: #ffffffee;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+        }
 
-/* Hover effect */
-.symptom-label:hover {
-    background-color: #5f5cb7; /* Lighter purple on hover */
-}
+        .symptom-label:hover {
+            background-color: #5f5cb7;
+        }
 
-/* Updated checkbox styling */
-input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-}
+        input[type="checkbox"] {
+            position: absolute;
+            opacity: 0;
+        }
 
-/* Checked state styling */
-input[type="checkbox"]:checked + .symptom-label {
-    background-color: #55acee; /* Light blue when checked */
-}
+        input[type="checkbox"]:checked + .symptom-label {
+            background-color: #55acee;
+        }
 
-.button-container {
-    margin-top: 20px;
-}
+        .button-container {
+            margin-top: 20px;
+        }
 
-.button {
-    padding: 15px 30px;
-    background-color: #55acee; /* Light blue button */
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+        .button {
+            padding: 15px 30px;
+            background-color: #55acee;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-.button:hover {
-    background-color: #3c8dbc; /* Darker blue on hover */
-}
+        .button:hover {
+            background-color: #3c8dbc;
+        }
 
-#result {
-    font-size: 1.2rem; /* Adjust result font size */
-    margin-top: 20px;
-}
-
+        #result {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="symptoms-container">
             <h1>Select your symptoms...</h1>
-            <form id="symptomsForm">
-                <div class="symptom">
-                    <input type="checkbox" id="shortness" name="shortness">
-                    <label class="symptom-label" for="shortness">Shortness</label>
-                </div>
+            <form id="symptomsForm" onsubmit="event.preventDefault(); submitSymptoms(); updateDatabase();">
                 <div class="symptom">
                     <input type="checkbox" id="shortnessOfBreath" name="shortnessOfBreath">
-                    <label class="symptom-label" for="shortnessOfBreath">Shortness of breath</label>
+                    <label class="symptom-label" for="shortnessOfBreath">Shortness of Breath</label>
+                </div>
+                <div class="symptom">
+                    <input type="checkbox" id="sneezing" name="sneezing">
+                    <label class="symptom-label" for="sneezing">Sneezing</label>
                 </div>
                 <div class="symptom">
                     <input type="checkbox" id="runnyNose" name="runnyNose">
@@ -199,10 +194,42 @@ input[type="checkbox"]:checked + .symptom-label {
             <h2>Results</h2>
             <div id="result">No results yet.</div>
             <div class="button-container">
-                <button type="button" class="button" onclick="submitSymptoms()">Submit</button>
+                <button type="button" class="button" onclick="submitSymptoms(); updateDatabase();">Submit</button>
             </div>
         </div>
     </div>
     <script src="/script_model.js"></script>
+    <script>
+        function updateDatabase() {
+            const form = document.getElementById('symptomsForm');
+            const formData = new FormData(form);
+            const selectedSymptoms = {};
+
+            formData.forEach((value, key) => {
+                if (value === 'on') {
+                    selectedSymptoms[key] = 1;
+                }
+            });
+
+            fetch('/api/v1/user-panel/updateSymptoms', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(selectedSymptoms)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Symptoms updated successfully in the database.');
+                } else {
+                    console.log('Failed to update symptoms in the database.');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
 </body>
 </html>

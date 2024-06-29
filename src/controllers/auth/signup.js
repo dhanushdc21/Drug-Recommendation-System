@@ -9,14 +9,17 @@ const new_user = errorWrapper(async (req, res, next) => {
     console.log(req.body)
     try{
         if (!email || !password || !confirm_password) {
+            console.log("fine1")
             return res.status(400).json({
                 success: false,
                 message: 'Username and password are required',
 
                 data: null
             });
+            
         }
         if (password!=confirm_password) {
+            console.log("fine2")
             return res.status(400).json({
                 success: false,
                 message: 'Re-enter the password.',
@@ -28,6 +31,7 @@ const new_user = errorWrapper(async (req, res, next) => {
         email: email.trim(),
         password: password.trim()
     });
+    console.log("fine3")
     await newCustomer.save();
     console.log('User signup complete.');
     const jwtToken = generateJWTToken({ userId: email });
@@ -40,7 +44,7 @@ const new_user = errorWrapper(async (req, res, next) => {
         }
     });
     }catch(error){
-        console.error('Error during signup:', error.message);
+        console.error('Error during signup1:', error.message);
         return res.status(400).json({
             success: false,
             message: error.message,
