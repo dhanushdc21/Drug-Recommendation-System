@@ -6,7 +6,7 @@
     <title>Drug Prediction</title>
     <style>
         body {
-            background: linear-gradient(to right bottom, #667eea, #764ba2);
+            background: linear-gradient(to right bottom, #77a9ab, #0a969e);
             color: #c0c1f1;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -86,7 +86,7 @@
             padding: 20px;
             border-radius: 8px;
             cursor: pointer;
-            background-color: #4a47a3;
+            background-color: #067685;
             color: #ffffffee;
             text-align: center;
             transition: background-color 0.3s ease;
@@ -95,7 +95,7 @@
         }
 
         .symptom-label:hover {
-            background-color: #5f5cb7;
+            background-color: #066787;
         }
 
         input[type="checkbox"] {
@@ -104,7 +104,7 @@
         }
 
         input[type="checkbox"]:checked + .symptom-label {
-            background-color: #55acee;
+            background-color: #02e3a3;
         }
 
         .button-container {
@@ -154,7 +154,7 @@
                 </div>
                 <div class="symptom">
                     <input type="checkbox" id="weakness" name="weakness">
-                    <label class="symptom-label" for="weakness">Weakness</label>
+                    <label class="symptom-label" for="weakness">Weakness of Joints</label>
                 </div>
                 <div class="symptom">
                     <input type="checkbox" id="dizzinessLightheadedness" name="dizzinessLightheadedness">
@@ -182,7 +182,7 @@
                 </div>
                 <div class="symptom">
                     <input type="checkbox" id="nauseaVomiting" name="nauseaVomiting">
-                    <label class="symptom-label" for="nauseaVomiting">Nausea or vomiting</label>
+                    <label class="symptom-label" for="nauseaVomiting">Vomiting</label>
                 </div>
                 <div class="symptom">
                     <input type="checkbox" id="nausea" name="nausea">
@@ -191,7 +191,7 @@
             </form>
         </div>
         <div class="result-container">
-            <h2>Results</h2>
+            <h2>RESULTS</h2>
             <div id="result">No results yet.</div>
             <div class="button-container">
                 <button type="button" class="button" onclick="submitSymptoms(); updateDatabase();">Submit</button>

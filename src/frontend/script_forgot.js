@@ -22,6 +22,7 @@ document.getElementById("forgotPasswordForm").addEventListener("submit", functio
     })
     .then(data => {
         console.log(data);
+        
         // Handle success, show a message to the user, etc.
     })
     .catch(error => {

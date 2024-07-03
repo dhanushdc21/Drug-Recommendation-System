@@ -6,8 +6,8 @@
     <title>Drug Recommendation System</title>
     <style>
         body {
-            background-color: #580f41;
-            color: white;
+            background-color: #639c9f;
+            color: rgb(38, 34, 34);
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -21,11 +21,11 @@
             text-align: center;
         }
         h1 {
-            font-size: 3em;
+            font-size: 5.0em;
             margin-bottom: 20px;
         }
         p {
-            font-size: 1.2em;
+            font-size: 1.5em;
             margin-bottom: 20px;
         }
         .button {
@@ -44,10 +44,25 @@
 </head>
 <body>
     <div class="content">
-        <h1>Welcome to Drug Recommendation System</h1>
+        <h1>WELCOME TO THE DRUG RECOMMENDATION SYSTEM</h1>
         <p>You have successfully signed up.</p>
         <p>Click the button below to access the drug recommendation system.</p>
-        <a href="http://localhost:5000/api/v1/user-panel/predict_drug" class="button">Access Drug Recommendation System</a>
+        <a href="http://localhost:5000/api/v1/user-panel/predict_drug" id="accessButton" class="button">Access Drug Recommendation System</a>
     </div>
+
+    <!-- JavaScript for transition effect -->
+    <script>
+        document.getElementById('accessButton').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default behavior of anchor tag
+
+            // Add a class to initiate the animation
+            document.body.classList.add('fade-out');
+            
+            // Redirect after a short delay (adjust as needed)
+            setTimeout(function() {
+                window.location.href = event.target.href;
+            }, 500); // 500ms delay before redirect
+        });
+    </script>
 </body>
 </html>

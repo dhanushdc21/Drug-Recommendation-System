@@ -22,13 +22,11 @@ dbConnect();
 
 app.set('trust proxy', 1);
 
-// Enable CORS
 app.use(cors());
 
-// Parse JSON and text/plain requests
 app.use(express.json({ type: ['application/json', 'text/plain'] }));
 
-// Set Content Security Policy for node_modules (where Chart.js and @kurkle/color might reside)
+// Set Content Security Policy for node_modules
 app.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
 
 // Set a global Content Security Policy
@@ -40,10 +38,8 @@ app.use((req, res, next) => {
     next();
 });
 
-// Prevent XSS attacks
 app.use(xss());
 
-// HTTP request logger
 app.use(morgan('tiny'));
 
 // Serve static files (e.g., frontend files)
@@ -52,10 +48,8 @@ app.use(express.static(path.join(__dirname, 'frontend')));
 // API routes
 app.use('/api/v1', indexRouter);
 
-// Handle 404 errors
 app.use(notFound);
 
-// Error handler middleware
 app.use(errorHandler);
 
 const port = process.env.PORT || 3000;

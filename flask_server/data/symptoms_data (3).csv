@@ -5,20 +5,20 @@ Shortness of breath,Sneezing,Runny or stuffy nose,Increased sensitivity to cold,
 0,0,0,0,0,0,0,0,0,0,0,0,0,Fibromyalgia,Pain relievers
 1,0,0,0,0,0,0,0,1,0,1,0,0,Hypertension,Antihypertensives
 1,0,0,0,0,0,0,1,0,0,1,0,0,COVID-19,Remdesivir
-0,0,0,0,0,0,0,1,0,0,0,0,0,Tuberculosis,Antibiotics
+0,0,0,0,0,0,0,1,0,0,0,0,0,viral fever,Paracetamol
 0,0,0,0,0,0,0,1,0,0,0,0,0,Flu,Oseltamivir
-0,0,0,0,0,0,0,1,0,0,0,0,0,Tuberculosis,Antibiotics
+0,0,0,0,0,0,0,1,0,0,0,0,0,viral fever,Paracetamol
 0,0,0,0,0,0,0,0,0,0,0,0,0,Fibromyalgia,Pain relievers
 1,0,0,0,0,0,1,0,0,0,0,0,0,Bronchitis,Antibiotics
 0,0,0,0,1,0,0,0,0,0,0,0,0,Rheumatoid Arthritis,Disease-modifying antirheumatic drugs (DMARDs)
-0,0,0,0,0,0,0,1,0,0,0,0,0,Tuberculosis,Antibiotics
-1,0,0,0,0,0,0,1,0,0,0,0,0,Lupus,Nonsteroidal anti-inflammatory drugs (NSAIDs)
+0,0,0,0,0,0,0,1,0,0,0,0,0,viral fever,Paracetamol
+1,0,0,0,0,0,0,1,0,0,0,0,0,Chest Infection,Azithromycin
 0,0,1,0,0,0,0,1,0,0,1,0,0,Influenza,Zanamivir
 1,0,0,0,0,0,0,1,0,0,1,0,0,COVID-19,Remdesivir
 0,0,0,0,0,0,0,0,0,1,0,0,0,Hyperthyroidism,Antithyroid medication
 0,0,0,0,0,0,0,0,0,0,0,0,0,Fibromyalgia,Pain relievers
 1,0,0,0,0,0,0,0,1,0,1,0,0,Hypertension,Antihypertensives
-0,0,0,0,0,0,0,1,0,0,1,0,0,Strep Throat,Antibiotics
+0,0,0,0,0,0,0,1,0,0,1,0,0,viral fever,Paracetamol
 1,0,0,0,0,0,0,1,0,0,1,0,0,COVID-19,Remdesivir
 0,0,1,0,0,0,0,1,0,0,1,0,0,Influenza,Zanamivir
 0,1,1,0,0,0,0,1,0,0,1,0,0,Allergies,Antihistamines
@@ -30,7 +30,7 @@ Shortness of breath,Sneezing,Runny or stuffy nose,Increased sensitivity to cold,
 1,0,0,0,0,0,1,0,0,0,0,0,0,Bronchitis,Antibiotics
 0,0,0,0,0,0,0,1,0,0,0,0,0,Flu,Oseltamivir
 0,1,1,0,0,0,0,1,0,0,1,0,0,Allergies,Antihistamines
-0,0,0,0,0,0,0,1,0,0,1,0,0,Strep Throat,Antibiotics
+0,0,0,0,0,0,0,1,0,0,1,0,0,viral fever,Paracetamol
 0,1,1,0,0,0,0,1,0,0,1,0,0,Allergies,Antihistamines
 0,0,0,0,0,0,0,0,0,0,0,0,0,Diabetes,Insulin
 0,0,0,0,0,0,0,0,0,1,0,0,0,Hyperthyroidism,Antithyroid medication
@@ -43,55 +43,55 @@ Shortness of breath,Sneezing,Runny or stuffy nose,Increased sensitivity to cold,
 0,0,0,0,1,0,0,0,0,0,0,0,0,Rheumatoid Arthritis,Disease-modifying antirheumatic drugs (DMARDs)
 0,0,0,0,0,0,0,1,0,0,1,0,1,Gastroenteritis,Rehydration therapy
 0,0,0,0,1,0,0,0,0,0,0,0,0,Rheumatoid Arthritis,Disease-modifying antirheumatic drugs (DMARDs)
-0,0,0,0,0,0,0,1,0,0,1,0,0,Strep Throat,Antibiotics
-0,0,0,1,0,0,0,0,0,0,0,0,0,Hypothyroidism,Hormone replacement therapy
+0,0,0,0,0,0,0,1,0,0,1,0,0,viral fever,Paracetamol
+0,0,0,1,0,0,0,0,0,1,0,0,0,Hypothyroidism,Hormone replacement therapy
 0,0,0,0,0,0,0,0,0,1,0,0,0,Hyperthyroidism,Antithyroid medication
-1,0,0,0,0,0,0,1,0,0,0,0,0,Lupus,Nonsteroidal anti-inflammatory drugs (NSAIDs)
+1,0,0,0,0,0,0,1,0,0,0,0,0,Chest Infection,Azithromycin
 1,0,0,0,1,0,0,1,0,0,0,1,0,Pneumonia,Antibiotics
 0,0,0,0,0,0,0,1,0,0,0,0,0,Flu,Oseltamivir
 1,0,0,0,0,0,0,1,0,0,1,0,0,COVID-19,Remdesivir
 0,1,1,0,0,0,1,0,0,0,0,0,0,Common Cold,Antihistamines
 0,0,1,0,0,0,0,1,0,0,1,0,0,Influenza,Zanamivir
 0,1,1,0,0,0,0,1,0,0,1,0,0,Allergies,Antihistamines
-1,0,0,0,0,0,0,1,0,0,0,0,0,Lupus,Nonsteroidal anti-inflammatory drugs (NSAIDs)
+1,0,0,0,0,0,0,1,0,0,0,0,0,Chest Infection,Azithromycin
 1,0,0,0,1,1,0,0,0,0,0,0,0,Anemia,Iron supplements
 1,0,0,0,0,0,0,0,1,0,1,0,0,Hypertension,Antihypertensives
 0,0,0,0,0,0,0,1,0,0,1,0,1,Gastroenteritis,Rehydration therapy
 1,0,0,0,0,0,1,0,0,0,0,0,0,Bronchitis,Antibiotics
-0,0,0,0,0,0,0,1,0,0,0,0,0,Tuberculosis,Antibiotics
+0,0,0,0,0,0,0,1,0,0,0,0,0,viral fever,Paracetamol
 1,0,0,0,1,1,0,0,0,0,0,0,0,Anemia,Iron supplements
 0,0,0,0,1,0,0,0,0,0,0,0,0,Rheumatoid Arthritis,Disease-modifying antirheumatic drugs (DMARDs)
 1,0,0,0,0,0,0,0,0,0,0,0,0,Asthma,Inhaled corticosteroids
 1,0,0,0,0,0,0,1,0,0,1,0,0,COVID-19,Remdesivir
 1,0,0,0,0,0,0,0,0,0,0,0,0,Asthma,Inhaled corticosteroids
-0,0,0,0,0,0,0,1,0,0,0,0,0,Tuberculosis,Antibiotics
+0,0,0,0,0,0,0,1,0,0,0,0,0,viral fever,Paracetamol
 1,0,0,0,0,0,0,0,0,0,0,0,0,Asthma,Inhaled corticosteroids
-0,0,0,0,0,0,0,1,0,0,1,0,0,Strep Throat,Antibiotics
+0,0,0,0,0,0,0,1,0,0,1,0,0,viral fever,Paracetamol
 0,1,1,0,0,0,1,0,0,0,0,0,0,Common Cold,Antihistamines
 0,1,1,0,0,0,1,0,0,0,0,0,0,Common Cold,Antihistamines
 0,0,0,0,0,0,0,1,0,0,0,0,0,Flu,Oseltamivir
 0,0,0,0,0,0,0,0,0,1,0,0,0,Hyperthyroidism,Antithyroid medication
 1,0,0,0,0,0,0,0,1,0,1,0,0,Hypertension,Antihypertensives
-0,0,0,0,0,0,0,1,0,0,0,0,0,Tuberculosis,Antibiotics
+0,0,0,0,0,0,0,1,0,0,0,0,0,viral fever,Paracetamol
 0,0,0,0,0,0,0,0,0,1,0,0,0,Hyperthyroidism,Antithyroid medication
-0,0,0,0,0,0,0,1,0,0,0,0,0,Tuberculosis,Antibiotics
-0,0,0,0,0,0,0,1,0,0,1,0,0,Strep Throat,Antibiotics
+0,0,0,0,0,0,0,1,0,0,0,0,0,viral fever,Paracetamol
+0,0,0,0,0,0,0,1,0,0,1,0,0,viral fever,Paracetamol
 1,0,0,0,1,1,0,0,0,0,0,0,0,Anemia,Iron supplements
 0,1,1,0,0,0,0,1,0,0,1,0,0,Allergies,Antihistamines
 0,0,0,1,0,0,0,0,0,0,0,0,0,Hypothyroidism,Hormone replacement therapy
 0,1,1,0,0,0,0,1,0,0,1,0,0,Allergies,Antihistamines
 0,0,0,1,0,0,0,0,0,0,0,0,0,Hypothyroidism,Hormone replacement therapy
-0,0,0,0,0,0,0,1,0,0,1,0,0,Strep Throat,Antibiotics
+0,0,0,0,0,0,0,1,0,0,1,0,0,viral fever,Paracetamol
 0,0,0,0,0,0,0,0,0,0,0,0,0,Fibromyalgia,Pain relievers
 1,0,0,0,0,0,0,1,0,0,1,0,0,COVID-19,Remdesivir
 1,0,0,0,0,0,0,1,0,0,1,0,0,COVID-19,Remdesivir
 0,0,0,0,0,0,0,1,0,0,1,0,1,Gastroenteritis,Rehydration therapy
-0,0,0,0,0,0,0,1,0,0,1,0,0,Strep Throat,Antibiotics
-1,0,0,0,0,0,0,1,0,0,0,0,0,Lupus,Nonsteroidal anti-inflammatory drugs (NSAIDs)
+0,0,0,0,0,0,0,1,0,0,1,0,0,viral fever,Paracetamol
+1,0,0,0,0,0,0,1,0,0,0,0,0,Chest Infection,Azithromycin
 1,0,0,0,1,1,0,0,0,0,0,0,0,Anemia,Iron supplements
-0,0,0,0,0,0,0,1,0,0,0,0,0,Tuberculosis,Antibiotics
+0,0,0,0,0,0,0,1,0,0,0,0,0,viral fever,Paracetamol
 0,1,1,0,0,0,0,1,0,0,1,0,0,Allergies,Antihistamines
-0,0,0,0,0,0,0,1,0,0,1,0,0,Strep Throat,Antibiotics
+0,0,0,0,0,0,0,1,0,0,1,0,0,viral fever,Paracetamol
 0,1,1,0,0,0,1,0,0,0,0,0,0,Common Cold,Antihistamines
 0,0,0,0,0,0,0,1,0,0,1,0,1,Gastroenteritis,Rehydration therapy
 1,0,0,0,0,0,1,0,0,0,0,0,0,Bronchitis,Antibiotics
